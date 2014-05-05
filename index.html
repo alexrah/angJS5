@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html ng-app="">
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <title>AngularJS test app!</title>
+  <style type="text/css">
+    details { float: left; width: 23%; margin-left: 2%; }
+    header { width: 50%; margin-bottom: 20px; }
+  </style>
+</head>
+
+<body ng-init="customers=['ted', 'lucia', 'mark']">
+<details>
+  <summary>About:</summary> 
+  <!--lorem--> <p>Quam ac rutrum placerat, nunc augue
+    ullamcorper est, vitae molestie neque nunc a nunc. Integer justo dolor,
+    consequat id, rutrum auctor, ullamcorper sed, orci. In hac habitasse platea
+    dictumst. Fusce euismod semper orci. Integer venenatis quam non nunc.
+    Vivamus in lorem a nisi aliquet commodo. Suspendisse massa lorem, dignissim
+    at, vehicula et, ornare non, libero. Donec molestie, velit quis dictum
+    scelerisque, est lectus hendrerit lorem, eget dignissim orci nisl sit amet
+    massa. Etiam volutpat lobortis eros. Nunc ac tellus in sapien molestie
+    rhoncus. Pellentesque nisl. Praesent venenatis blandit velit. Fusce rutrum.
+    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur.</p>
+  <!--/lorem-->
+</details>
+
+<center>
+  <header>
+    <h2><span class="label label-danger">AngularJS test app!</span></h2>
+  </header>
+
+    <section id="search">
+      Filter <span class="glyphicon glyphicon-search"></span>
+      <input type="text" ng-model="searchText" />
+      <!-- <br /> -->
+      <div id="results">
+        <!-- <strong>{{searchText}}</strong> -->
+      </div>
+    </section>
+    <section id="customers">
+      <h3><span class="label label-info">Costumers:</span></h3>
+
+      <div ng-repeat="cust in customers | filter:searchText">
+        <p>{{cust}}</p>
+      </div>    
+    
+    </section> 
+ </center>
+    <script src="bower_components/angular/angular.min.js"
+  type="text/javascript">
+</script>
+<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript">
+</script>
+ <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script> -->
+<script type="text/javascript">
+  $(function(){
+      $('summary').click(function(){
+        if ($('details').is("[open]") ){
+        $('#search').css('width', '100%');
+        $('#customers').css('width', '100%');
+        } else {
+        $('#search').css('width', '50%');
+        $('#customers').css('width', '50%');
+        }
+        });
+      });
+</script>
+
+</body>
+</html>
